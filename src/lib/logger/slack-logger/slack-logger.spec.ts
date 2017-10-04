@@ -8,7 +8,7 @@ import { ENV } from '../../../config/environments';
  * This test create real slack posts so skip default.
  * Disable skip if test this.
  */
-describe('SlackLogger', () => {
+describe.skip('SlackLogger', () => {
   let slackLogger: SlackLogger;
   before(() => {
     slackLogger = new SlackLogger(ENV.slackWebhookUrlLog, ENV.slackWebhookUrlInfo, ENV.slackWebhookUrlError);
