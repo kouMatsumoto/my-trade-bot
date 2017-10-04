@@ -1,0 +1,51 @@
+{
+  "name": "my-trade-bot",
+  "version": "0.0.1-alpha.1",
+  "description": "My trading bot for bitbank.cc",
+  "main": "",
+  "scripts": {
+    "build": "tsc",
+    "develop": "tsc -w",
+    "lint": "tslint --project ./tslint.json",
+    "test": "mocha --compilers ts:ts-node/register src/**/*.spec.ts --timeout 20000",
+    "tsc": "tsc",
+    "pm2-start": "tsc && pm2 start ./pm2.json && pm2 logs main",
+    "pm2-stop": "pm2 stop all",
+    "deploy": "ANSIBLE_CONFIG=./ansible/ansible.cfg ansible-playbook ansible/production-deploy.yml -i ./ansible/hosts",
+    "order-dev": "node ./src/order.develop.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kouMatsumoto/my-trade-bot.git"
+  },
+  "keywords": [],
+  "author": "kouMatsumoto",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/kouMatsumoto/my-trade-bot/issues"
+  },
+  "homepage": "https://github.com/kouMatsumoto/my-trade-bot#readme",
+  "dependencies": {
+    "axios": "^0.16.2",
+    "crypto-js": "^3.1.9-1",
+    "dotenv": "^4.0.0",
+    "moment": "^2.18.1",
+    "pm2": "^2.7.1",
+    "qs": "^6.5.1",
+    "rxjs": "^5.5.0-beta.3"
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/crypto-js": "^3.1.35",
+    "@types/expect": "^1.20.2",
+    "@types/mocha": "^2.2.43",
+    "@types/moment": "^2.13.0",
+    "@types/node": "^8.0.30",
+    "@types/qs": "^6.5.0",
+    "expect": "^1.20.2",
+    "mocha": "^3.5.3",
+    "ts-node": "^3.3.0",
+    "tslint": "^5.7.0",
+    "typescript": "^2.5.2"
+  }
+}
