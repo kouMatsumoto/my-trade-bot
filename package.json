@@ -12,7 +12,7 @@
     "pm2-start": "tsc && pm2 start ./pm2.json && pm2 logs main",
     "pm2-stop": "pm2 stop all",
     "deploy": "ANSIBLE_CONFIG=./ansible/ansible.cfg ansible-playbook ansible/production-deploy.yml -i ./ansible/hosts",
-    "order-dev": "node ./src/order.develop.js"
+    "dev": "node ./src/dev.js"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "dotenv": "^4.0.0",
     "moment": "^2.18.1",
     "pm2": "^2.7.1",
+    "pubnub": "^4.15.1",
     "qs": "^6.5.1",
     "rxjs": "^5.5.0-beta.3"
   },
