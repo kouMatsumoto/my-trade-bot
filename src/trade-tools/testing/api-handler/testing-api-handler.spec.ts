@@ -1,5 +1,5 @@
 import * as expect from 'expect';
-import { TestingApiHandler } from './testing-api-hander';
+import { TestingApiHandler } from './testing-api-handler';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/range';
 import 'rxjs/add/operator/concatMap';
