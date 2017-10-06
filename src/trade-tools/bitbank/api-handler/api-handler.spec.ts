@@ -1,14 +1,11 @@
-import { BitbankApiHandler } from './api-hander';
+import { BitbankApiHandler } from './api-handler';
 import * as expect from 'expect';
-import moment = require('moment');
+import * as moment from 'moment';
 
-
+let api: BitbankApiHandler;
+const pair = 'btc_jpy';
 describe('BitbankApiHandler', () => {
-  const pair = 'btc_jpy';
-
-
   describe('Public Api', () => {
-    let api: BitbankApiHandler;
     before(() => {
       api = new BitbankApiHandler();
     });
@@ -107,7 +104,7 @@ describe('BitbankApiHandler', () => {
         api.getTransactions(pair, moment().subtract(2, 'day').format('YYYYMMDD'))
           .subscribe(
             (data) => {
-              expect(Array.isArray(data.transactions)).toBeTruthy();
+              expect(Array.isArray(data.transactions)).toBe(true);
             },
             () => {},
             () => done(),
