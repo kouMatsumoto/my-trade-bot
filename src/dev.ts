@@ -1,4 +1,4 @@
-import { BitbankApiHandler } from './trade-tools/bitbank/api-handler/api-handler';
+import { BitbankApiHandler, BitbankApiOrderOptions } from './trade-tools/bitbank/api-handler/api-handler';
 import { ENV } from './config/environments';
 
 
@@ -10,7 +10,15 @@ const api = new BitbankApiHandler({
 
 console.log(ENV);
 
-api.getUserAssets().subscribe(
+const options: BitbankApiOrderOptions = {
+  pair: 'btc_jpy',
+  amount: 0.001,
+  price: 48000,
+  side: 'buy',
+  type: 'limit',
+};
+
+api.createOrder(options).subscribe(
   (data) => {
     console.log('data', data);
   },
