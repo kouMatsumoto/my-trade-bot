@@ -1,17 +1,26 @@
+import { BitbankApiHandler } from './trade-tools/bitbank/api-handler/api-handler';
+import { ENV } from './config/environments';
 
-import { BitbankPubnubHandler } from './trade-tools/bitbank/pubnub-handler/pubnub-handler';
+
+const api = new BitbankApiHandler({
+  apiKey: ENV.apiKey,
+  apiSecret: ENV.apiSecret,
+});
 
 
-const pubnubHandler = new BitbankPubnubHandler();
-pubnubHandler.getTicker$('btc_jpy')
-  .subscribe((data) => {
-    console.log(data);
-  });
+console.log(ENV);
 
-pubnubHandler.getTicker$('xrp_jpy')
-  .subscribe((data) => {
-    console.log(data);
-  });
+api.getUserAssets().subscribe(
+  (data) => {
+    console.log('data', data);
+  },
+  (error) => {
+    console.error('error', error);
+  },
+  () => {
+    console.log('complete');
+  }
+);
 
 
 // prevent from exit process.
