@@ -11,6 +11,11 @@ const api = new BitbankApiHandler({
 
 // cancelAll();
 
+api.getWithdrawAccount('btc')
+  .subscribe((data) => {
+    console.log(data);
+  });
+
 
 
 function getOrder() {
