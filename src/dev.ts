@@ -8,6 +8,7 @@ const api = new BitbankApiHandler({
 });
 
 
+getActiveOrders();
 
 
 
@@ -19,8 +20,12 @@ function getOrder() {
     });
 }
 
-getOrder();
-
+function getActiveOrders() {
+  api.getActiveOrders('xrp_jpy')
+    .subscribe((data) => {
+      console.log(data);
+    });
+}
 
 function createOrder() {
   const options: BitbankApiOrderOptions = {
