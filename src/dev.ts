@@ -1,9 +1,9 @@
-import { BitbankApiHandler, BitbankApiOrderOptions } from './trade-tools/bitbank/api-handler/api-handler';
+import { BitbankPrivateApiHandler, BitbankApiOrderOptions } from './trade-tools/bitbank/private-api-handler/private-api-handler';
 import { ENV } from './config/environments';
-import { filter, map, mergeMap, tap } from 'rxjs/operators';
+import { filter, map, mergeMap } from 'rxjs/operators';
 
 
-const api = new BitbankApiHandler({
+const api = new BitbankPrivateApiHandler({
   apiKey: ENV.apiKey,
   apiSecret: ENV.apiSecret,
 });
