@@ -22,7 +22,6 @@ function getOrder() {
 getOrder();
 
 
-
 function createOrder() {
   const options: BitbankApiOrderOptions = {
     pair: 'btc_jpy',
