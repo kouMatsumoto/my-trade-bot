@@ -2,13 +2,13 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { Observable } from 'rxjs/Observable';
 import { fromPromise } from 'rxjs/observable/fromPromise';
 import { map, tap } from 'rxjs/operators';
-import { BitbankApiErrorData, BitbankApiResponse } from '../api-handler/api-response.type';
+import { BitbankApiErrorData, BitbankApiResponse } from '../api-response.type';
 
 
 /**
  * Http handler for bitbank.cc API.
  *
- * this uses axios internally and return only http response data as Observable.
+ * this uses axios module internally and return only http response data as Observable.
  */
 export class Http {
   get<T>(url: string, options?: AxiosRequestConfig): Observable<T> {
@@ -33,7 +33,7 @@ export class Http {
 /**
  * Internal function of Http.
  *
- * all api result whose success is 0 has BitbankApiErrorData interface.
+ * all api result whose success is 0 has common interface.
  */
 function throwErrorIfSuccessIs0(data: BitbankApiResponse<any>): void {
   if (data.success === 0) {
@@ -45,7 +45,7 @@ function throwErrorIfSuccessIs0(data: BitbankApiResponse<any>): void {
 /**
  * Override axios response's interface to enable generics.
  *
- * <any> to <T>.
+ * data: any -> data: T
  */
 interface AxiosHttpResponse<T> extends AxiosResponse {
   data: T;
